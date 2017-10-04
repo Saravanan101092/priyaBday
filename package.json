@@ -1,0 +1,27 @@
+{
+  "name": "balabdaygit",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Saravanan101092/Balabday.git"
+  },
+  "dependencies": {
+    "body-parser": "^1.14.2",
+    "express": "^4.13.3",
+    "consolidate": "^0.14.1",
+    "express-session": "^1.11.3",
+    "socket.io": "^1.7.3",
+    "connect": "~2.3.3"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Saravanan101092/Balabday/issues"
+  },
+  "homepage": "https://github.com/Saravanan101092/Balabday#readme"
+}
