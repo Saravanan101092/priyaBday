@@ -1,7 +1,7 @@
 var myApp = angular.module("myApp1", ["ngRoute"]);
 
 myApp.controller('MsgController',['$http','$scope','$location',function($http, $scope,$location){
-console.log("inside message controller");
+console.log("inside message controllers");
 $scope.messages={};
 
 var socket = io.connect('/');
