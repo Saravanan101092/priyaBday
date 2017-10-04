@@ -263,3 +263,10 @@ nav a.button-collapse {
 footer.page-footer {
     margin-top: 0px !important;
 }
+
+.chatText{
+    font-size: 20px;
+    font-family: verdana;
+    font-weight: bold;
+    color:#FFFFFF;
+}

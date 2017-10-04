@@ -8,6 +8,12 @@ var consolidate = require('consolidate');
 var app = express();
 var server = require('http').createServer(app);
 var io = require('socket.io')(server);
+var fs = require('fs');
+require.extensions['.txt'] = function (module, filename) {
+    module.exports = fs.readFileSync(filename, 'utf8');
+};
+
+var words = require("./messages.txt");
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
@@ -32,7 +38,25 @@ app.get('/',
         res.sendFile(path.join(__dirname+'/www/index.html'));
     });
 
+function readFile(){
+   var delimitedStr = [];
+  delimitedStr =  words.split('#$#'); 
+  delimitedStr.shift()
+  for(var i=0;i<delimitedStr.length;i++){
+    messages.push(JSON.parse(delimitedStr[i]));
+    console.log(JSON.stringify(messages));
+  }
+}
 
+readFile();
+
+
+function writeMessageTofile(message){
+   fs.appendFile('messages.txt', "#$#"+message, function (err) {
+  if (err) throw err;
+  console.log('Saved!');
+});
+}
 
 server.listen(process.env.PORT || 8087, function() {
     console.log("Listening on port 8087");
@@ -44,9 +68,9 @@ io.sockets.on('connection', function(socket) {
     socket.emit('messages', messages);
 
     socket.on('newMsg', function(obj) {
-    	console.log("new message"+obj.text);
     	messages.push(obj);
-        socket.broadcast.emit('newMsgServer', obj);
+        writeMessageTofile(JSON.stringify(obj));
+        io.emit('newMsgServer', obj);
     });
 
     socket.on('disconnect', function() {
