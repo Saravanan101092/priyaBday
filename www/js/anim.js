@@ -138,7 +138,7 @@ console.log('canvas is '+canvas);
 
   function performAction(value) {
    
-	var current = ['Happy Birthday!','Priya turns 25!','Have a great year baby!'];
+	var current = ['Love you!','Priya#25','Gulab Jamun'];
 	var count = 0;
     timedAction(function (index) {
 		count++;
@@ -148,7 +148,7 @@ console.log('canvas is '+canvas);
 	  
 	S.Shape.switchShape(S.ShapeBuilder.letter(current[count]));
  
-    }, 5000, sequence.length);
+    }, 10000, sequence.length);
   }
 
   function bindEvents() {
