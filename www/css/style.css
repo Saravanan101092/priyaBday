@@ -270,3 +270,11 @@ footer.page-footer {
     font-weight: bold;
     color:#FFFFFF;
 }
+.timeline-visual img{
+max-height: 350px; 
+}
+desc h3{
+    position: absolute;
+    float: right;
+    text-align: center;
+}
